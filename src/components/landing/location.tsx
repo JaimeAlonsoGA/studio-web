@@ -120,7 +120,7 @@ export default function LocationSection() {
     // Auto-rotate images for mobile
     useEffect(() => {
         if (!isMobile && !isTablet) return;
-        
+
         const interval = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % images.length);
         }, 3000);
@@ -144,9 +144,8 @@ export default function LocationSection() {
                                 key={index}
                                 src={img}
                                 alt={`Location ${index + 1}`}
-                                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-                                    index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                                }`}
+                                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                                    }`}
                             />
                         ))}
                         {/* Indicadores */}
@@ -155,9 +154,8 @@ export default function LocationSection() {
                                 <button
                                     key={index}
                                     onClick={() => setCurrentImageIndex(index)}
-                                    className={`w-2 h-2 rounded-full transition-all ${
-                                        index === currentImageIndex ? 'bg-white w-6' : 'bg-white/50'
-                                    }`}
+                                    className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex ? 'bg-white w-6' : 'bg-white/50'
+                                        }`}
                                 />
                             ))}
                         </div>
@@ -237,48 +235,48 @@ export default function LocationSection() {
                 /* VERSIÓN DESKTOP - Con GSAP */
                 <div className="sticky top-0 h-screen w-full overflow-hidden">
 
-                {/* Capa de imágenes - Ocupa todo el ancho */}
-                <div className="absolute inset-0">
-                    {images.map((img, index) => (
-                        <div
-                            key={index}
-                            ref={el => { imagesRef.current[index] = el; }}
-                            className="absolute inset-0 w-full h-full"
-                            style={{ zIndex: index }}
-                        >
-                            <img
-                                src={img}
-                                alt={`Location ${index + 1}`}
-                                className="w-full h-full object-cover"
-                            />
-                            {/* Overlay sutil para mejor legibilidad */}
-                            <div className="absolute inset-0 bg-linear-to-b from-black/20 via-transparent to-black/40"></div>
-                        </div>
-                    ))}
-                </div>
+                    {/* Capa de imágenes - Ocupa todo el ancho */}
+                    <div className="absolute inset-0">
+                        {images.map((img, index) => (
+                            <div
+                                key={index}
+                                ref={el => { imagesRef.current[index] = el; }}
+                                className="absolute inset-0 w-full h-full"
+                                style={{ zIndex: index }}
+                            >
+                                <img
+                                    src={img}
+                                    alt={`Location ${index + 1}`}
+                                    className="w-full h-full object-cover"
+                                />
+                                {/* Overlay sutil para mejor legibilidad */}
+                                <div className="absolute inset-0 bg-linear-to-b from-black/20 via-transparent to-black/40"></div>
+                            </div>
+                        ))}
+                    </div>
 
-                {/* Background gradient después de las imágenes - Ocupa todo el ancho */}
-                <div
-                    ref={backgroundRef}
-                    className="flex justify-center items-center absolute inset-0 bg-linear-to-br from-indigo-950 via-purple-950 to-black"
-                    style={{ zIndex: images.length }}
-                >
-                    {/* Efectos decorativos en el background */}
-                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/20 rounded-full blur-3xl animate-pulse"></div>
-                    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-                </div>
+                    {/* Background gradient después de las imágenes - Ocupa todo el ancho */}
+                    <div
+                        ref={backgroundRef}
+                        className="flex justify-center items-center absolute inset-0 bg-linear-to-br from-indigo-950 via-purple-950 to-black"
+                        style={{ zIndex: images.length }}
+                    >
+                        {/* Efectos decorativos en el background */}
+                        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/20 rounded-full blur-3xl animate-pulse"></div>
+                        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+                    </div>
 
-                {/* Contenido principal - Con max-w-7xl */}
-                <div
-                    ref={contentRef}
-                    className="absolute inset-0 overflow-hidden"
-                    style={{ zIndex: images.length + 1 }}
-                >
-                    <div className="h-full overflow-y-hidden">
-                        <div className="min-h-screen flex flex-col justify-center py-12 md:py-20">
-                            <div className="max-w-7xl mx-auto px-4 w-full">
+                    {/* Contenido principal - Con max-w-7xl */}
+                    <div
+                        ref={contentRef}
+                        className="absolute inset-0 overflow-hidden"
+                        style={{ zIndex: images.length + 1 }}
+                    >
+                        <div className="h-full overflow-y-hidden">
+                            <div className="min-h-screen flex flex-col justify-center py-12 md:py-20">
+                                <div className="max-w-7xl mx-auto px-4 w-full">
 
-                                {/* <div
+                                    {/* <div
                                     ref={el => { contentItemsRef.current[0] = el; }}
                                     className="text-center mb-12 md:mb-16"
                                 >
@@ -294,103 +292,103 @@ export default function LocationSection() {
                                     <div className="w-24 h-1 mx-auto mt-6 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-full"></div>
                                 </div> */}
 
-                                {/* Contenido principal en grid */}
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                                    {/* Contenido principal en grid */}
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
 
-                                    {/* Tarjeta de Información de Contacto */}
-                                    <div
-                                        ref={el => { contentItemsRef.current[1] = el; }}
-                                        className="space-y-6"
-                                    >
-                                        <div className="p-6 md:p-8 rounded-3xl bg-linear-to-br from-purple-900/60 to-black/60 backdrop-blur-xl border-2 border-purple-500/30 shadow-2xl">
-                                            <h3 className="text-2xl md:text-3xl font-bold mb-6 bg-linear-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                                                ¡Es un Bosque Madrileño!
-                                            </h3>
-
-                                            <div className="space-y-5">
-                                                {/* Dirección */}
-                                                <div className="flex items-start gap-4 group">
-                                                    <div className="shrink-0 p-3 rounded-xl bg-linear-to-br from-pink-500 to-rose-600 shadow-lg group-hover:scale-110 transition-transform">
-                                                        <MapPin className="w-5 h-5 text-white" />
-                                                    </div>
-                                                    <div>
-                                                        <h4 className="text-base md:text-lg font-semibold text-purple-200 mb-1">Dirección</h4>
-                                                        <p className="text-sm md:text-base text-purple-300">
-                                                            A una hora de Madrid capital, coche o transporte público bus 551<br />
-                                                            San Martín de Valdeiglesias, Madrid, España
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                {/* Teléfono */}
-                                                <div className="flex items-start gap-4 group">
-                                                    <div className="shrink-0 p-3 rounded-xl bg-linear-to-br from-purple-500 to-indigo-600 shadow-lg group-hover:scale-110 transition-transform">
-                                                        <Phone className="w-5 h-5 text-white" />
-                                                    </div>
-                                                    <div>
-                                                        <h4 className="text-base md:text-lg font-semibold text-purple-200 mb-1">Teléfono</h4>
-                                                        <p className="text-sm md:text-base text-purple-300">+34 684 332 575</p>
-                                                    </div>
-                                                </div>
-
-                                                {/* Email */}
-                                                <div className="flex items-start gap-4 group">
-                                                    <div className="shrink-0 p-3 rounded-xl bg-linear-to-br from-cyan-500 to-blue-600 shadow-lg group-hover:scale-110 transition-transform">
-                                                        <Mail className="w-5 h-5 text-white" />
-                                                    </div>
-                                                    <div>
-                                                        <h4 className="text-base md:text-lg font-semibold text-purple-200 mb-1">Email</h4>
-                                                        <p className="text-sm md:text-base text-purple-300">elboskestudio@gmail.com</p>
-                                                    </div>
-                                                </div>
-
-                                                {/* Horario */}
-                                                <div className="flex items-start gap-4 group">
-                                                    <div className="shrink-0 p-3 rounded-xl bg-linear-to-br from-green-500 to-emerald-600 shadow-lg group-hover:scale-110 transition-transform">
-                                                        <Clock className="w-5 h-5 text-white" />
-                                                    </div>
-                                                    <div>
-                                                        <h4 className="text-base md:text-lg font-semibold text-purple-200 mb-1">Horario</h4>
-                                                        <p className="text-sm md:text-base text-purple-300">
-                                                            Cuando puedas y el estudio esté disponible ¡te esperamos!<br />
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* Botón de direcciones */}
-                                        <button
-                                            className="w-full p-5 md:p-6 rounded-2xl bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-semibold text-base md:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-3"
-                                            onClick={() => window.open('https://maps.google.com', '_blank')}
+                                        {/* Tarjeta de Información de Contacto */}
+                                        <div
+                                            ref={el => { contentItemsRef.current[1] = el; }}
+                                            className="space-y-6"
                                         >
-                                            <Navigation className="w-5 h-5 md:w-6 md:h-6" />
-                                            Cómo Llegar
-                                        </button>
-                                    </div>
+                                            <div className="p-6 md:p-8 rounded-3xl bg-linear-to-br from-purple-900/60 to-black/60 backdrop-blur-xl border-2 border-purple-500/30 shadow-2xl">
+                                                <h3 className="text-2xl md:text-3xl font-bold mb-6 bg-linear-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                                                    ¡Es un Bosque Madrileño!
+                                                </h3>
 
-                                    {/* Mapa */}
-                                    <div
-                                        ref={el => { contentItemsRef.current[2] = el; }}
-                                        className="relative rounded-3xl overflow-hidden border-2 border-purple-500/30 shadow-2xl min-h-[400px] lg:min-h-0"
-                                    >
-                                        <div className="absolute inset-0 bg-linear-to-br from-purple-900/60 to-black/60 backdrop-blur-xl flex items-center justify-center">
-                                            <div className="text-center p-8">
-                                                <div className="relative inline-block mb-6">
-                                                    <MapPin className="w-20 h-20 md:w-24 md:h-24 text-purple-400 animate-bounce" />
-                                                    <div className="absolute inset-0 bg-purple-500/30 blur-2xl rounded-full animate-pulse"></div>
+                                                <div className="space-y-5">
+                                                    {/* Dirección */}
+                                                    <div className="flex items-start gap-4 group">
+                                                        <div className="shrink-0 p-3 rounded-xl bg-linear-to-br from-pink-500 to-rose-600 shadow-lg group-hover:scale-110 transition-transform">
+                                                            <MapPin className="w-5 h-5 text-white" />
+                                                        </div>
+                                                        <div>
+                                                            <h4 className="text-base md:text-lg font-semibold text-purple-200 mb-1">Dirección</h4>
+                                                            <p className="text-sm md:text-base text-purple-300">
+                                                                A una hora de Madrid capital, coche o transporte público bus 551<br />
+                                                                San Martín de Valdeiglesias, Madrid, España
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Teléfono */}
+                                                    <div className="flex items-start gap-4 group">
+                                                        <div className="shrink-0 p-3 rounded-xl bg-linear-to-br from-purple-500 to-indigo-600 shadow-lg group-hover:scale-110 transition-transform">
+                                                            <Phone className="w-5 h-5 text-white" />
+                                                        </div>
+                                                        <div>
+                                                            <h4 className="text-base md:text-lg font-semibold text-purple-200 mb-1">Teléfono</h4>
+                                                            <p className="text-sm md:text-base text-purple-300">+34 684 332 575</p>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Email */}
+                                                    <div className="flex items-start gap-4 group">
+                                                        <div className="shrink-0 p-3 rounded-xl bg-linear-to-br from-cyan-500 to-blue-600 shadow-lg group-hover:scale-110 transition-transform">
+                                                            <Mail className="w-5 h-5 text-white" />
+                                                        </div>
+                                                        <div>
+                                                            <h4 className="text-base md:text-lg font-semibold text-purple-200 mb-1">Email</h4>
+                                                            <p className="text-sm md:text-base text-purple-300">elboskestudio@gmail.com</p>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Horario */}
+                                                    <div className="flex items-start gap-4 group">
+                                                        <div className="shrink-0 p-3 rounded-xl bg-linear-to-br from-green-500 to-emerald-600 shadow-lg group-hover:scale-110 transition-transform">
+                                                            <Clock className="w-5 h-5 text-white" />
+                                                        </div>
+                                                        <div>
+                                                            <h4 className="text-base md:text-lg font-semibold text-purple-200 mb-1">Horario</h4>
+                                                            <p className="text-sm md:text-base text-purple-300">
+                                                                Cuando puedas y el estudio esté disponible ¡te esperamos!<br />
+                                                            </p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <p className="text-purple-300 text-base md:text-lg font-medium">
-                                                    Mapa Interactivo<br />
-                                                    <span className="text-sm text-purple-400">(Integra aquí Google Maps)</span>
-                                                </p>
+                                            </div>
+
+                                            {/* Botón de direcciones */}
+                                            <button
+                                                className="w-full p-5 md:p-6 rounded-2xl bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-semibold text-base md:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-3"
+                                                onClick={() => window.open('https://maps.google.com', '_blank')}
+                                            >
+                                                <Navigation className="w-5 h-5 md:w-6 md:h-6" />
+                                                Cómo Llegar
+                                            </button>
+                                        </div>
+
+                                        {/* Mapa */}
+                                        <div
+                                            ref={el => { contentItemsRef.current[2] = el; }}
+                                            className="relative rounded-3xl overflow-hidden border-2 border-purple-500/30 shadow-2xl min-h-[400px] lg:min-h-0"
+                                        >
+                                            <div className="absolute inset-0 bg-linear-to-br from-purple-900/60 to-black/60 backdrop-blur-xl flex items-center justify-center">
+                                                <div className="text-center p-8">
+                                                    <div className="relative inline-block mb-6">
+                                                        <MapPin className="w-20 h-20 md:w-24 md:h-24 text-purple-400 animate-bounce" />
+                                                        <div className="absolute inset-0 bg-purple-500/30 blur-2xl rounded-full animate-pulse"></div>
+                                                    </div>
+                                                    <p className="text-purple-300 text-base md:text-lg font-medium">
+                                                        Mapa Interactivo<br />
+                                                        <span className="text-sm text-purple-400">(No disponible, mándanos un mensaje )</span>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                {/* Nota informativa */}
-                                {/* <div
+                                    {/* Nota informativa */}
+                                    {/* <div
                                     ref={el => { contentItemsRef.current[3] = el; }}
                                     className="mt-12 md:mt-16"
                                 >
@@ -402,11 +400,11 @@ export default function LocationSection() {
                                         </p>
                                     </div>
                                 </div> */}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             )}
         </section>
     );
