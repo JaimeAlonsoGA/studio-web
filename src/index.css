@@ -1,0 +1,314 @@
+@import 'tailwindcss';
+
+:root {
+  --purple-900: #4c1d95;
+  --purple-800: #5b21b6;
+  --purple-700: #6d28d9;
+  --pink-500: #ec4899;
+  --cyan-500: #06b6d4;
+}
+
+@theme {
+  /* === Base colors === */
+  --color-background: #78350f;
+  --color-foreground: #a5f3fc;
+
+  /* === Surface / UI colors === */
+  --color-card: #92400e;
+  --color-card-foreground: #a5f3fc;
+
+  --color-popover: #92400e;
+  --color-popover-foreground: #a5f3fc;
+
+  /* === Primary === */
+  --color-primary: #b45309;
+  --color-primary-foreground: #a5f3fc;
+
+  /* === Secondary === */
+  --color-secondary: #1d4ed8;
+  --color-secondary-foreground: #a5f3fc;
+
+  /* === Muted / subtle === */
+  --color-muted: #d97706;
+  --color-muted-foreground: #67e8f9;
+
+  /* === Accent === */
+  --color-accent: #22c55e;
+  --color-accent-foreground: #78350f;
+
+  /* === Destructive === */
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: #a5f3fc;
+
+  /* === Borders / Inputs === */
+  --color-border: #d97706;
+  --color-input: #92400e;
+  --color-ring: #ec4899;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+
+}
+
+.main-gradient-text {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-blue-600 via-green-400 to-amber-700; 
+}
+
+.main-gradient-bg {
+  @apply bg-linear-to-br from-blue-900 via-amber-950 to-blue-800;
+}
+
+.cta-button {
+  @apply cursor-pointer bg-linear-to-r from-blue-700 via-cyan-400 to-blue-700 text-white text-xl px-4 py-6 rounded-full shadow-2xl border-2 border-amber-500 hover:border-amber-600 hover:from-indigo-700 hover:via-cyan-200 hover:to-indigo-700;
+}
+
+.cta-button-secondary {
+  @apply cursor-pointer px-8 py-4 bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 text-white text-lg font-semibold rounded-full hover:scale-110 transition-transform shadow-2xl hover:from-pink-400 hover:via-purple-500 hover:to-cyan-400;
+}
+
+.safe-gradient-text {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-amber-500 to-amber-700; 
+}
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #d97706, #b45309);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #da7d12, #9a4606);
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-30px) translateX(5px);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.5), 0 0 40px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.8), 0 0 60px rgba(139, 92, 246, 0.5);
+  }
+}
+
+@keyframes gradient-text {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-delay {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+}
+
+@keyframes floatUp {
+                    0% {
+                        transform: translateY(0) translateX(0) rotate(0deg);
+                    }
+                    25% {
+                        transform: translateY(-25vh) translateX(15px) rotate(90deg);
+                    }
+                    50% {
+                        transform: translateY(-50vh) translateX(-8px) rotate(180deg);
+                    }
+                    75% {
+                        transform: translateY(-75vh) translateX(10px) rotate(270deg);
+                    }
+                    100% {
+                        transform: translateY(-100vh) translateX(0) rotate(360deg);
+                    }
+}
+                
+@keyframes fadeInOut {
+                    0% {
+                        opacity: 0;
+                    }
+                    15% {
+                        opacity: 1;
+                    }
+                    85% {
+                        opacity: 0.6;
+                    }
+                    100% {
+                        opacity: 0;
+                    }
+}
+
+ @keyframes float {
+                    0%, 100% { transform: translateY(0px); }
+                    50% { transform: translateY(-20px); }
+                }
+                
+                @keyframes fadeIn {
+                    to { opacity: 1; }
+                }
+                
+                @keyframes bounce {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-10px); }
+}
+
+@font-face {
+  font-family: "caprice";
+  src: local("caprice.medium"), url("./assets/fonts/caprice.medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "fantasie";
+  src: local("Fantasie"), url("./assets/fonts/fantasie.ttf") format("truetype");
+}
+
+/* Apply animations */
+.animate-float {
+  animation: float ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-gradient-text {
+  background-size: 200% 200%;
+  animation: gradient-text 3s ease infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+  animation: fade-in-delay 1.5s ease-out forwards;
+}
+
+.animate-scroll-down {
+  animation: scroll-down 2s ease-in-out infinite;
+}
+
+/* Utility classes */
+.drop-shadow-glow {
+  filter: drop-shadow(0 0 20px #22c55e);
+}
+
+/* Delay utilities */
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+.delay-2000 {
+  animation-delay: 2s;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(236, 72, 153, 0.3);
+  color: #fff;
+}

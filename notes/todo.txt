@@ -1,0 +1,17 @@
+Galería de fotos y videos
+
+Reproductor online
+    Pequeño fragmento de audio de cada album
+
+Contacto lógica funcional
+
+Location maps?? 
+
+Cursos y actividades logos
+
+Textos
+
+Refinar estilos (hovers, borders, paddings/margins, max-w)
+
+Hero y Entrance Gate más impactantes
+
