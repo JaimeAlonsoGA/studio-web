@@ -123,7 +123,7 @@ export default function SpecialitiesSection() {
 
                 {/* <h1 className="text-center text-5xl font-bold font-[fantasie] text-indigo-400/40">El Boske es un estudio de música y sonido preparado para la creación de audio profesional</h1> */}
                 <button
-                    onClick={() => nav("/contact")}
+                    onClick={() => nav("/contacto")}
                     ref={buttonRef}
                     // onClick={scrollToContact}
                     className="p-4 font-bold rounded-full text-xl group cursor-pointer mt-6 mx-auto flex bg-linear-to-r from-blue-800 via-green-400 to-amber-800 bg-clip-text text-transparent"

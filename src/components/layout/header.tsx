@@ -19,7 +19,7 @@ export default function Header() {
     }, []);
 
     const navLinks = [
-        { path: '/home', label: 'Inicio' },
+        { path: '/hogar', label: 'Inicio' },
         // { path: '/galeria', label: 'Galería' },
         { path: '/discografia', label: 'Discografía ' },
         { path: '/contacto', label: 'Contacto' },
@@ -35,7 +35,7 @@ export default function Header() {
             <nav className="container mx-auto px-4 py-4">
                 <div className="flex items-center justify-between">
                     <Link
-                        to="/home"
+                        to="/hogar"
                         className="flex flex-row items-start gap-2 text-2xl font-bold tracking-wider group"
                     >
                         {/* <img src={logo} alt="El Boske Logo" className="w-7 h-7 rounded-full bg-white border-2 border-blue-700" /> */}

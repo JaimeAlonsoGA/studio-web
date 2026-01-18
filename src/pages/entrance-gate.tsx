@@ -28,7 +28,7 @@ export default function EntranceGate() {
 
     const handleVideoEnd = () => {
         setTimeout(() => {
-            navigate('/home');
+            navigate('/hogar');
         }, 1000); // Match the fade-out duration
     };
 

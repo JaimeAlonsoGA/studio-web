@@ -11,7 +11,7 @@ export const MainRoutes = () => {
         <Routes>
             <Route path="/" element={<EntranceGate />} />
             <Route element={<PageLayout />}>
-                <Route path="/home" element={<Landing />} />
+                <Route path="/hogar" element={<Landing />} />
                 <Route path="/galeria" element={<Gallery />} />
                 <Route path="/discografia" element={<Discography />} />
                 <Route path="/contacto" element={<Contact />} />
