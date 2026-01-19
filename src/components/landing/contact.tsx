@@ -1,6 +1,28 @@
 import { useState, useCallback } from 'react';
 import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import emailjs from '@emailjs/browser';
+
+// Configuración de EmailJS
+const EMAILJS_SERVICE_ID = 'service_wb9lp47'; // CAMBIA ESTO por tu Service ID correcto de EmailJS
+const EMAILJS_PUBLIC_KEY = 'y0l8xGSladrXZqd2I';
+const EMAILJS_TEMPLATE_USER = 'template_y9w8yfr';    // Template de agradecimiento al usuario
+const EMAILJS_TEMPLATE_STUDIO = 'template_ykyrqgw'; // Template de notificación al estudio
+
+const SERVICE_LABELS: Record<string, string> = {
+    'grabacion': 'Grabación',
+    'edicion': 'Edición',
+    'produccion': 'Producción',
+    'mezcla': 'Mezcla',
+    'mastering': 'Mastering',
+    'clases-dj': 'Clases de DJ',
+    'clases-produccion': 'Clases de Producción',
+    'diseno-sonoro': 'Proyecto de Cortometraje',
+    'musica-cortometraje': 'Proyecto de Videojuego',
+    'podcast': 'Podcast',
+    'varios': 'Varios Servicios',
+    'otro': 'Otro',
+};
 
 interface FormErrors {
     name?: string;
@@ -76,19 +98,30 @@ export default function ContactSection() {
         setStatus('sending');
 
         try {
-            const response = await fetch('/api/send-contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+            // Preparar datos para EmailJS
+            const templateParams = {
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone || 'No proporcionado',
+                service: SERVICE_LABELS[formData.service] || formData.service,
+                message: formData.message,
+            };
 
-            const data = await response.json();
+            // Enviar email de agradecimiento al usuario
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_USER,
+                templateParams,
+                { publicKey: EMAILJS_PUBLIC_KEY }
+            );
 
-            if (!response.ok) {
-                throw new Error(data.error || 'Error al enviar el mensaje');
-            }
+            // Enviar email de notificación al estudio
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_STUDIO,
+                templateParams,
+                { publicKey: EMAILJS_PUBLIC_KEY }
+            );
 
             // Éxito
             setStatus('success');
